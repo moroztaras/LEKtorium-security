@@ -5,10 +5,10 @@
         <header>
             <div style="text-align: right">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <a href="#">Logout</a>
+                    <a href="{{ path('app_logout') }}">Logout</a>
                 {% else %}
-                    <a href="#">Log in</a> |
-                    <a href="#">Registration</a>
+                    <a href="{{ path('app_login') }}">Log in</a> |
+                    <a href="{{ path('app_registration') }}">Registration</a>
                 {% endif %}
             </div>
         </header>
