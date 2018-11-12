@@ -1,0 +1,26 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}
+    Articles list
+{% endblock %}
+
+{% block content %}
+    <div align="center">
+        <h1>Articles</h1>
+        {% for article in articles %}
+            <div>
+                <h1><a href="#">{{ article.title }}</a></h1>
+                <div>
+                    Author: {{ article.author }} | CreatedAt: {{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}
+                </div>
+                <p>
+                    {{ article.text }}
+                </p>
+                <hr align="center" width="100%" size="1" color="#C0C0C0" />
+            </div>
+        {% else %}
+            <p>no articles found!</p>
+        {% endfor %}
+    </div>
+    <a href="{{ path('article_new') }}">Create new</a>
+{% endblock %}
